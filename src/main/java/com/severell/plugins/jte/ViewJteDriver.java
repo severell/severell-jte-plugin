@@ -8,6 +8,7 @@ import gg.jte.TemplateEngine;
 import gg.jte.TemplateOutput;
 import gg.jte.output.PrintWriterOutput;
 import gg.jte.output.StringOutput;
+import gg.jte.output.WriterOutput;
 import gg.jte.resolve.DirectoryCodeResolver;
 
 import java.io.PrintWriter;
@@ -50,15 +51,7 @@ public class ViewJteDriver extends BaseView {
 
     @Override
     public void render(String template, Map<String,Object> object, String baseDir, Writer writer) throws ViewException {
-        if(writer instanceof PrintWriter) {
-            TemplateOutput output = new PrintWriterOutput((PrintWriter) writer);
-            templateEngine.render(template, object, output);
-        } else if(writer instanceof StringWriter) {
-            StringOutput output = new StringOutput();
-            templateEngine.render(template, object, output);
-            ((StringWriter) writer).write(output.toString());
-        } else {
-            throw new ViewException("Invalid writer. Needs to be instance of PrintWriter");
-        }
+        TemplateOutput output = new WriterOutput(writer);
+        templateEngine.render(template, object, output);
     }
 }
