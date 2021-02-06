@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: com.severell:core:0.0.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: com.severell:core:0.0.2-SNAPSHOT" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.mail:jakarta.mail:1.6.5" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.sun.activation:jakarta.activation:1.2.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.squareup:javapoet:1.13.0" level="project" />

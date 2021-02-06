@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.file.Path;
+import java.util.Map;
 
 /**
  * This class uses the JTE templating engine to render templates
@@ -43,12 +44,12 @@ public class ViewJteDriver extends BaseView {
     }
 
     @Override
-    public void render(String template, Object object, Writer writer) throws ViewException {
+    public void render(String template, Map<String,Object> object, Writer writer) throws ViewException {
         render(template, object, "templates/", writer);
     }
 
     @Override
-    public void render(String template, Object object, String baseDir, Writer writer) throws ViewException {
+    public void render(String template, Map<String,Object> object, String baseDir, Writer writer) throws ViewException {
         if(writer instanceof PrintWriter) {
             TemplateOutput output = new PrintWriterOutput((PrintWriter) writer);
             templateEngine.render(template, object, output);
