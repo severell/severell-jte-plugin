@@ -51,6 +51,17 @@ public class ViewJteDriverTest {
     }
 
     @Test
+    public void testJteDriverStringWriter() throws ViewException {
+        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources"));
+        StringWriter st = new StringWriter();
+        HashMap<String, Object> map = new HashMap<>();
+
+        driver.render("test.jte",map , st);
+        st.flush();
+        assertEquals("<html><body>Hello</body></html>", st.toString());
+    }
+
+    @Test
     public void testJteDriverThrowsIOError() throws IOException {
         ViewJteDriver driver = new ViewJteDriver();
         StringWriter writer = mock(StringWriter.class);
