@@ -52,6 +52,6 @@ public class ViewJteDriver extends BaseView {
     @Override
     public void render(String template, Map<String,Object> object, String baseDir, Writer writer) throws ViewException {
         TemplateOutput output = new WriterOutput(writer);
-        templateEngine.render(template, object, output);
+        templateEngine.render(baseDir + template, object, output);
     }
 }

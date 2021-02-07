@@ -29,7 +29,7 @@ public class ViewJteDriverTest {
 
     @Test
     public void testJteDriver() throws ViewException {
-        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources", "templates"));
+        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources"));
         StringWriter writer = new StringWriter();
         HashMap<String, Object> map = new HashMap<>();
 
@@ -40,7 +40,7 @@ public class ViewJteDriverTest {
 
     @Test
     public void testJteDriverPrintWriter() throws ViewException {
-        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources", "templates"));
+        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources"));
         StringWriter st = new StringWriter();
         PrintWriter writer = new PrintWriter(st);
         HashMap<String, Object> map = new HashMap<>();
@@ -48,17 +48,6 @@ public class ViewJteDriverTest {
         driver.render("test.jte",map , writer);
         writer.flush();
         assertEquals("<html><body>Hello</body></html>", st.toString());
-    }
-
-    @Test
-    public void testJteDriverBufferedWriter() throws ViewException {
-        ViewJteDriver driver = new ViewJteDriver(Path.of("src", "test", "resources", "templates"));
-        Writer writer = new BufferedWriter(new StringWriter());
-        HashMap<String, Object> map = new HashMap<>();
-
-        assertThrows(ViewException.class, () -> {
-            driver.render("test.jte",map , writer);
-        });
     }
 
     @Test
