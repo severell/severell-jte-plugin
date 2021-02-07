@@ -12,7 +12,8 @@ Add the following dependency to your `pom.xml`
 </dependency>
 ```
 
-Then in your `providers.java` you'll need to add the `JteProvider.java`. The provider list should look something like this
+Then in your `providers.java` you'll need to add the `JteProvider.java`. The provider list should look something like this.
+Don't copy and paste this. It might be missing some providers. Just add the `JteProvider.java` after `ViewProvider.java`.
 
 ```java
     public static ServiceProvider[] load(Container c) {
